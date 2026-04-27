@@ -1,0 +1,68 @@
+{
+  "name": "slideshow-cli",
+  "version": "0.2.0",
+  "description": "Generate TikTok-style multiple-image slideshow videos from a prompt with Cloudflare Workers AI, Pexels, and ffmpeg.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "slideshow": "dist/bin/cli.js",
+    "slideshow-cli": "dist/bin/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    ".env.example"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "postbuild": "node scripts/make-bin-executable.mjs",
+    "prepack": "npm run build",
+    "test": "vitest run",
+    "check": "npm run build && npm run test"
+  },
+  "keywords": [
+    "cli",
+    "cloudflare",
+    "workers-ai",
+    "ffmpeg",
+    "pexels",
+    "slideshow",
+    "video",
+    "tiktok",
+    "typescript"
+  ],
+  "author": "tayor",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tayor/slideshow-cli.git"
+  },
+  "homepage": "https://github.com/tayor/slideshow-cli#readme",
+  "bugs": {
+    "url": "https://github.com/tayor/slideshow-cli/issues"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.18.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7",
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "typescript": "^5.8.3",
+    "vitest": "^3.1.3"
+  }
+}
